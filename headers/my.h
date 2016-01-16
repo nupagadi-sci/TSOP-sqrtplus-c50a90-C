@@ -238,4 +238,7 @@ double calcCriteria();
 double calcConstraint(int NCons);
 double calcConstraintOnZ(int NCons);
 
+void DisplaySearchVarsNums(FILE* fptr);
+void DisplayConstraintsNums(FILE* fptr, struct T* prootU);
+
 #endif
