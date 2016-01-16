@@ -1,0 +1,80 @@
+maxIt 1000 
+nDirMax 256
+
+ScreenOutput 1
+
+iprint 3
+iprGetR 2 
+iprRop 2 
+iptTras 2
+
+Nt 1
+Nq 2
+Nj 4
+Nd 1
+
+epsF 1E-7 
+epsZ 1E-7 
+epsG 1E-5 
+epsFcgFg 1E-7
+epsM 1e-7
+epsT 1e-2
+epsUL 1e-2
+epsULabs 25e-4
+rmin 0.01
+
+u 0.0
+
+linerize 0
+
+C 0.5
+
+gamma 3.900
+#gamma 1.2500
+#gamma 1.500
+
+Na 1
+alpha 0.9
+#alpha 0.950
+#alpha 0.990
+
+splitDepth 2
+
+E  
+0.5
+0.198855 0.301097
+0.005155 0.1937 0.280712 0.020385
+
+A
+1
+0.5 0.5
+0.02554 0.474412 0.474412 0.02554
+
+P 
+1 1 1 1
+
+#Q 0.6665948 0.7985248 0.715 0.182
+#Qmin 0.61081 0.731582 0.678492 0.0486719
+#Qmax 0.722379 0.865468 0.736128 0.321691
+
+Q 6.665948	7.965248	0.715	0.182
+Qmin 6.465948 7.725248 0.6935 0.1765
+Qmax 6.865948 8.205248 0.7365 0.1875
+
+d 5 5
+dmin 0.5 0.5
+dmax 5 5
+
+zstart 10 10
+zmin 4.000 4.000
+zmax 10.000 10.000
+
+-Наследовать ли b от min к min
+-Наследовать ли b при дроблении
+b_min_inheritance 0
+b_split_inheritance 1
+
+bmin -1.9e00
+bmax 11e00
+
+Task 0
