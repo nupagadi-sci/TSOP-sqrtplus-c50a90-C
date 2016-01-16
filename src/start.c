@@ -501,6 +501,10 @@ ScreenOutput=0;
 
 			itroutp = fopen("itroutp.dat", "at");
 			fprintf(itroutp, "\nItrtn %d - fc = %lf\tV1 = %lf\tV2 = %lf\tTotal time = %lf\tifail = %d\n", nIteration, XU, d[0], d[1], total_time, ifail);
+
+			DisplaySearchVarsNums(itroutp);
+			DisplayConstraintsNums(itroutp, prootU);
+
 			pTK = prootK;
 			while(pTK=pTK->pnext)
 			{
@@ -606,7 +610,7 @@ Nt=Nt;
 					}
 				}
 
-
+/*
 				pT = prootU;
 				while(pT=pT->pnext)
 					if(pT->isActive)
@@ -618,7 +622,7 @@ Nt=Nt;
 						ptmp = prootU;	while((ptmp=ptmp->pnext)->pnext);
 						ptmp->pnext = pT2;
 					};
-
+*/
 
 				free(pQap);
 				pQap = malloc(Nap*Nq*sizeof(double));				
@@ -799,4 +803,20 @@ Nt=Nt;
 	//free(alpha);
 	//exit(1022);
 	_getch();
+}
+
+void DisplaySearchVarsNums(FILE* itroutp)
+{
+	fprintf(itroutp, "search vars nums:\n\td\tbounds\tb\tall\n");
+	fprintf(itroutp, "\t%d\t%d\t%d\t%d\n", Nd, 2*Ns*Nq, Nap*Nz*(Nq+1), Nd + 2*Ns*Nq +	Nap*Nz*(Nq+1));
+}
+
+void DisplayConstraintsNums(FILE* itroutp, struct T* prootU)
+{
+	unsigned total_krit = 0;
+	struct T* pT = prootU;	
+	while(pT=pT->pnext)	total_krit+=pT->NQcr;
+
+	fprintf(itroutp, "constraints nums:\n\tF\tlr\tcrit\tall\n");
+	fprintf(itroutp, "\t%d\t%d\t%d\t%d\n", Na, Ns*Nq, total_krit, Na + Ns*Nq + total_krit);
 }
